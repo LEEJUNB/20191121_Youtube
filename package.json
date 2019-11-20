@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon --exec babel-node index.js --delay 2"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/LEEJUNB/FinalTube/issues"
   },
-  "homepage": "https://github.com/LEEJUNB/FinalTube#readme"
+  "homepage": "https://github.com/LEEJUNB/FinalTube#readme",
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
