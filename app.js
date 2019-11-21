@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import routes from "./routes";
 
 const app = express();
 
@@ -15,8 +16,8 @@ app.use(bodyParser.urlencoded()); // form을 다룰수있어야한다.
 app.use(morgan("combined"));
 app.use(helmet());
 
-app.use("/",globalRouter)// global Router. root("/")가 될 것. 여긴 검색,홈 
-app.use("/user", userRouter);
-app.use("/video",videoRouter);
+app.use(routes.home,globalRouter);// routes.home이 의미하는 것은 localhost:3000/ 이다. globalRouter는 /이후에 쓰이는 url에 따라 res가 달라진다.
+app.use(routes.users,userRouter);// routes.users가 의미하는 것은 localhost:3000/users이다. userRouters는 /users/이후에 쓰이는 url에 따라 res가 달라진다.
+app.use(routes.videos,videoRouter);// routes.videos가 의미하는 것은 localhost:3000/videos이다. videoRouter는 /videos/이후에 쓰이는 url에 따라 res가 달라진다.
 
 export default app;
